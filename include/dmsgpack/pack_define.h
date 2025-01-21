@@ -7,12 +7,12 @@
  *    (See accompanying file LICENSE_1_0.txt or copy at
  *    http://www.boost.org/LICENSE_1_0.txt)
  */
-#ifndef MSGPACK_PACK_DEFINE_H
-#define MSGPACK_PACK_DEFINE_H
+#ifndef DMSGPACK_PACK_DEFINE_H
+#define DMSGPACK_PACK_DEFINE_H
 
-#include "msgpack/sysdep.h"
+#include "dmsgpack/sysdep.h"
 #include <limits.h>
 #include <string.h>
 
-#endif /* msgpack/pack_define.h */
+#endif /* dmsgpack/pack_define.h */
 

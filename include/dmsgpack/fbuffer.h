@@ -7,8 +7,8 @@
  *    (See accompanying file LICENSE_1_0.txt or copy at
  *    http://www.boost.org/LICENSE_1_0.txt)
  */
-#ifndef MSGPACK_FBUFFER_H
-#define MSGPACK_FBUFFER_H
+#ifndef DMSGPACK_FBUFFER_H
+#define DMSGPACK_FBUFFER_H
 
 #include <stdio.h>
 #include <assert.h>
@@ -19,12 +19,12 @@ extern "C" {
 
 
 /**
- * @defgroup msgpack_fbuffer FILE* buffer
- * @ingroup msgpack_buffer
+ * @defgroup dmsgpack_fbuffer FILE* buffer
+ * @ingroup dmsgpack_buffer
  * @{
  */
 
-static inline int msgpack_fbuffer_write(void* data, const char* buf, size_t len)
+static inline int dmsgpack_fbuffer_write(void* data, const char* buf, size_t len)
 {
     assert(buf || len == 0);
     if(!buf) return 0;
@@ -39,4 +39,4 @@ static inline int msgpack_fbuffer_write(void* data, const char* buf, size_t len)
 }
 #endif
 
-#endif /* msgpack/fbuffer.h */
+#endif /* dmsgpack/fbuffer.h */

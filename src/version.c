@@ -1,22 +1,22 @@
-#include "msgpack.h"
+#include "dmsgpack.h"
 
-const char* msgpack_version(void)
+const char* dmsgpack_version(void)
 {
-    return MSGPACK_VERSION;
+    return DMSGPACK_VERSION;
 }
 
-int msgpack_version_major(void)
+int dmsgpack_version_major(void)
 {
-    return MSGPACK_VERSION_MAJOR;
+    return DMSGPACK_VERSION_MAJOR;
 }
 
-int msgpack_version_minor(void)
+int dmsgpack_version_minor(void)
 {
-    return MSGPACK_VERSION_MINOR;
+    return DMSGPACK_VERSION_MINOR;
 }
 
-int msgpack_version_revision(void)
+int dmsgpack_version_revision(void)
 {
-    return MSGPACK_VERSION_REVISION;
+    return DMSGPACK_VERSION_REVISION;
 }
 

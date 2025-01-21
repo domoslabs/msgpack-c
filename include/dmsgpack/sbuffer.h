@@ -7,8 +7,8 @@
  *    (See accompanying file LICENSE_1_0.txt or copy at
  *    http://www.boost.org/LICENSE_1_0.txt)
  */
-#ifndef MSGPACK_SBUFFER_H
-#define MSGPACK_SBUFFER_H
+#ifndef DMSGPACK_SBUFFER_H
+#define DMSGPACK_SBUFFER_H
 
 #include <stdlib.h>
 #include <string.h>
@@ -20,46 +20,46 @@ extern "C" {
 
 
 /**
- * @defgroup msgpack_sbuffer Simple buffer
- * @ingroup msgpack_buffer
+ * @defgroup dmsgpack_sbuffer Simple buffer
+ * @ingroup dmsgpack_buffer
  * @{
  */
 
-typedef struct msgpack_sbuffer {
+typedef struct dmsgpack_sbuffer {
     size_t size;
     char* data;
     size_t alloc;
-} msgpack_sbuffer;
+} dmsgpack_sbuffer;
 
-static inline void msgpack_sbuffer_init(msgpack_sbuffer* sbuf)
+static inline void dmsgpack_sbuffer_init(dmsgpack_sbuffer* sbuf)
 {
-    memset(sbuf, 0, sizeof(msgpack_sbuffer));
+    memset(sbuf, 0, sizeof(dmsgpack_sbuffer));
 }
 
-static inline void msgpack_sbuffer_destroy(msgpack_sbuffer* sbuf)
+static inline void dmsgpack_sbuffer_destroy(dmsgpack_sbuffer* sbuf)
 {
     free(sbuf->data);
 }
 
-static inline msgpack_sbuffer* msgpack_sbuffer_new(void)
+static inline dmsgpack_sbuffer* dmsgpack_sbuffer_new(void)
 {
-    return (msgpack_sbuffer*)calloc(1, sizeof(msgpack_sbuffer));
+    return (dmsgpack_sbuffer*)calloc(1, sizeof(dmsgpack_sbuffer));
 }
 
-static inline void msgpack_sbuffer_free(msgpack_sbuffer* sbuf)
+static inline void dmsgpack_sbuffer_free(dmsgpack_sbuffer* sbuf)
 {
     if(sbuf == NULL) { return; }
-    msgpack_sbuffer_destroy(sbuf);
+    dmsgpack_sbuffer_destroy(sbuf);
     free(sbuf);
 }
 
-#ifndef MSGPACK_SBUFFER_INIT_SIZE
-#define MSGPACK_SBUFFER_INIT_SIZE 8192
+#ifndef DMSGPACK_SBUFFER_INIT_SIZE
+#define DMSGPACK_SBUFFER_INIT_SIZE 8192
 #endif
 
-static inline int msgpack_sbuffer_write(void* data, const char* buf, size_t len)
+static inline int dmsgpack_sbuffer_write(void* data, const char* buf, size_t len)
 {
-    msgpack_sbuffer* sbuf = (msgpack_sbuffer*)data;
+    dmsgpack_sbuffer* sbuf = (dmsgpack_sbuffer*)data;
 
     assert(buf || len == 0);
     if(!buf) return 0;
@@ -67,7 +67,7 @@ static inline int msgpack_sbuffer_write(void* data, const char* buf, size_t len)
     if(sbuf->alloc - sbuf->size < len) {
         void* tmp;
         size_t nsize = (sbuf->alloc) ?
-                sbuf->alloc * 2 : MSGPACK_SBUFFER_INIT_SIZE;
+                sbuf->alloc * 2 : DMSGPACK_SBUFFER_INIT_SIZE;
 
         while(nsize < sbuf->size + len) {
             size_t tmp_nsize = nsize * 2;
@@ -91,7 +91,7 @@ static inline int msgpack_sbuffer_write(void* data, const char* buf, size_t len)
     return 0;
 }
 
-static inline char* msgpack_sbuffer_release(msgpack_sbuffer* sbuf)
+static inline char* dmsgpack_sbuffer_release(dmsgpack_sbuffer* sbuf)
 {
     char* tmp = sbuf->data;
     sbuf->size = 0;
@@ -100,7 +100,7 @@ static inline char* msgpack_sbuffer_release(msgpack_sbuffer* sbuf)
     return tmp;
 }
 
-static inline void msgpack_sbuffer_clear(msgpack_sbuffer* sbuf)
+static inline void dmsgpack_sbuffer_clear(dmsgpack_sbuffer* sbuf)
 {
     sbuf->size = 0;
 }
@@ -112,4 +112,4 @@ static inline void msgpack_sbuffer_clear(msgpack_sbuffer* sbuf)
 }
 #endif
 
-#endif /* msgpack/sbuffer.h */
+#endif /* dmsgpack/sbuffer.h */

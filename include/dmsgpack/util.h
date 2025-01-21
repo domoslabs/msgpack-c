@@ -7,9 +7,9 @@
  *    (See accompanying file LICENSE_1_0.txt or copy at
  *    http://www.boost.org/LICENSE_1_0.txt)
  */
-#ifndef MSGPACK_UTIL_H
-#define MSGPACK_UTIL_H
+#ifndef DMSGPACK_UTIL_H
+#define DMSGPACK_UTIL_H
 
-#define MSGPACK_UNUSED(a) (void)(a)
+#define DMSGPACK_UNUSED(a) (void)(a)
 
-#endif /* MSGPACK_UTIL_H */
+#endif /* DMSGPACK_UTIL_H */
