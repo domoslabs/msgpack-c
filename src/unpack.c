@@ -50,7 +50,7 @@ static int template_execute(
 
 static inline dmsgpack_object template_callback_root(unpack_user* u)
 {
-    dmsgpack_object o;
+    dmsgpack_object o = {0};
     DMSGPACK_UNUSED(u);
     o.type = DMSGPACK_OBJECT_NIL;
     return o;
